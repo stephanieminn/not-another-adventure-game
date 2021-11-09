@@ -17,8 +17,15 @@ class Story
       puts "#{input}\n\n"
       exit if quit?(input)
 
-      return Story.new(parse(files.sample)) if enter?(input)
-      return Story.new(parse(files[input.to_i - 1])) if valid?(input, files)
+      if enter?(input)
+        file = files.sample
+        return Story.new(File.basename(file, ".*"), parse(file))
+      end
+
+      if valid?(input, files)
+        file = files[input.to_i - 1]
+        return Story.new(File.basename(file, ".*"), parse(file))
+      end
     end
   end
 
@@ -26,9 +33,10 @@ class Story
     JSON.parse(File.read(file))
   end
 
-  def initialize(nodes)
+  def initialize(title, nodes)
+    @title = title
     @nodes = nodes
   end
 
-  attr_reader :nodes
+  attr_reader :title, :nodes
 end

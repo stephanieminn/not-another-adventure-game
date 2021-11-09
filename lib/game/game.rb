@@ -10,6 +10,7 @@ class Game
   end
 
   def start
+    puts "You're playing the '#{story.title}' story.\n\n"
     current_node = nodes["1"]
     if current_node.nil?
       puts "Exiting -- can't find start node with key '1'."
