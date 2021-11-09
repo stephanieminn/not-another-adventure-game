@@ -63,7 +63,7 @@ class Game
   end
 
   def move_it_along?(current_node)
-    # If the current node has no branching paths, but has a next node and is not the end of the tree
-    current_node["choices"].empty? && current_node["next_node"] && !current_node["finish"]
+    # Assumes no branching paths if the current node has a top level 'next_node'
+    current_node["next_node"]
   end
 end
