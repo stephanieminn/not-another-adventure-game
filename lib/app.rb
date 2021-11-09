@@ -12,7 +12,7 @@ class App
 
   def self.run
     clear_screen
-    puts "Hello! Welcome to The Game. It's starting now. Press 'q' at any time to quit.\n\n"
+    puts "Hello! Welcome to Not Another Adventure Game. It's starting now. Press 'q' at any time to quit.\n\n"
 
     story = Story.select
     exit if story.nil?
