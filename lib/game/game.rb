@@ -10,7 +10,8 @@ class Game
   end
 
   def start
-    puts "You're playing the '#{story.title}' story.\n\n"
+    puts "======================= STORY: #{story.title} =======================\n\n"
+
     current_node = nodes["1"]
     if current_node.nil?
       puts "Exiting -- can't find start node with key '1'."
@@ -40,7 +41,10 @@ class Game
 
   def progress(node)
     puts "#{node['text']}\n"
-    exit if node["finish"]
+    if node["finish"]
+      puts "\n======================= THE END =======================\n\n"
+      exit
+    end
 
     return if node["choices"].empty?
 
