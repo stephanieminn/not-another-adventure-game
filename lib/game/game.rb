@@ -3,8 +3,6 @@
 require_relative "../ui"
 
 class Game
-  include UI
-
   def initialize(story)
     @story = story
   end

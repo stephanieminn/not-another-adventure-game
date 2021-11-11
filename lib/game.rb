@@ -6,8 +6,9 @@ require "pry-byebug"
 require_relative "./ui"
 require_relative "./game/story"
 require_relative "./game/game"
+require_relative "./game/node"
 
-class App
+module NotAnotherAdventureGame
   extend UI
 
   def self.run
@@ -16,9 +17,6 @@ class App
 
     stories = Story.available_stories
     story = select_story(stories)
-
-    exit if story.nil?
-
     Game.new(story).start
   end
 
@@ -34,4 +32,4 @@ class App
   end
 end
 
-App.run
+NotAnotherAdventureGame.run

@@ -15,7 +15,7 @@ bundle install
 Start a game by running:
 
 ```
-ruby lib/app.rb
+ruby lib/game.rb
 ```
 
 ## Adding a new story
