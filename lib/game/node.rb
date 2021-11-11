@@ -8,11 +8,6 @@ class Node
   end
 
   def progress
-    if nil?
-      puts "Exiting -- can't find node."
-      exit
-    end
-
     puts "#{body['text']}\n"
     finish if body["finish"]
 
