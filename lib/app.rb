@@ -2,7 +2,7 @@
 
 require "io/console"
 require "json"
-require "pry"
+require "pry-byebug"
 require_relative "./ui"
 require_relative "./game/story"
 require_relative "./game/game"
