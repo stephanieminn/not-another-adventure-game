@@ -3,8 +3,9 @@
 class Node
   include UI
 
-  def initialize(body)
+  def initialize(body, story)
     @body = body
+    @story = story
   end
 
   def progress
@@ -20,7 +21,7 @@ class Node
 
   private
 
-  attr_reader :body
+  attr_reader :body, :story
 
   def finish
     puts "\n======================= THE END =======================\n\n"
@@ -35,7 +36,7 @@ class Node
   def handle_non_branching
     handle_input # Expects user to input anything to continue
     next_node_key = body["next_node"]
-    next_node_key
+    story.nodes[next_node_key]
   end
 
   def handle_branching
@@ -47,6 +48,6 @@ class Node
 
     selection = handle_input(branches)
     next_node_key = body["branches"][selection.to_i - 1]["next_node"]
-    next_node_key
+    story.nodes[next_node_key]
   end
 end
