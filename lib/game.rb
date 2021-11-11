@@ -11,7 +11,9 @@ require_relative "./game/node"
 module NotAnotherAdventureGame
   extend UI
 
-  def self.run
+  module_function
+
+  def run
     clear_screen
     puts "Hello! Welcome to Not Another Adventure Game. Press 'q' at any time to quit.\n\n"
 
@@ -20,7 +22,7 @@ module NotAnotherAdventureGame
     Game.new(story).start
   end
 
-  def self.select_story(stories)
+  def select_story(stories)
     puts "Which story would you like to play? Press the corresponding number.\n\n"
 
     stories.each_with_index do |story, index|

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ui"
-
 class Story
   def self.available_stories
     files = Dir["./data/*.json"]
