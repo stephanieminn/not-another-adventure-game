@@ -9,7 +9,8 @@
     "text": "You walk down the corridor for a few minutes until you reach a fork. You can't tell where either dierction leads.",
     "branches": [
       { "text": "Go left (press 1)", "next_node": "3" },
-      { "text": "Go right (press 2)", "next_node": "4" }
+      { "text": "Go right (press 2)", "next_node": "4" },
+      {"text": "Go through the secret door (press 3)", "next_node": "5"}
     ],
     "finish": false
   },
@@ -21,6 +22,11 @@
   "4": {
     "text": "You turn right and carry on for a few minutes. A few minutes turns into a few hours. A few hours turns into the rest of your life. You never escape.",
     "branches": [],
+    "finish": true
+  },
+  "5":{
+    "text": "You open the secret door and walk for a few minutes, you are hit with the smell of stale coffee and hear the low murmer of voices. You suddenly come into a well lit large room, it is an open office floor plan. There is a pinball machine covered in dust. In one of the corners there is a small kitchenette with a large plate of cookies. As you take a step forward, mouth watering, you are whisked away into a conference room for a meeting.",
+    "branchs": [],
     "finish": true
   }
 }
