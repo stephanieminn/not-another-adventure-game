@@ -19,14 +19,10 @@ class Story
     start_node = nodes["1"]
     next_node = start_node.progress
 
-    while next_node
-      if next_node.nil?
-        puts "Exiting -- can't find node."
-        exit
-      end
+    next_node = next_node.progress while next_node
 
-      next_node = next_node.progress
-    end
+    puts "Exiting -- can't find node."
+    exit
   end
 
   attr_reader :title, :nodes
