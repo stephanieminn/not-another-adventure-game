@@ -33,6 +33,7 @@ class Node
   end
 
   def handle_non_branching
+    handle_input # Expects user to input anything to continue
     next_node_key = body["next_node"]
     next_node_key
   end

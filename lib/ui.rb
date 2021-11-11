@@ -10,7 +10,7 @@ module UI
     $stdin.getch
   end
 
-  def handle_input(options)
+  def handle_input(options = [])
     while (code = prompt)
       input = code.strip
       puts "#{input}\n\n"
@@ -32,6 +32,7 @@ module UI
   end
 
   def valid?(input, options)
+    return true if options.empty?
     return true if input.to_i.between?(1, options.size)
 
     puts "Sorry, that's not a valid input.\n\n"
