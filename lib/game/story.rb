@@ -31,8 +31,8 @@ class Story
 
   def nodes_from_file(file)
     data = JSON.parse(File.read(file))
-    data.transform_values! do |body|
-      Node.new(body, self)
+    data.transform_values! do |value|
+      Node.new(value, self)
     end
   end
 end
