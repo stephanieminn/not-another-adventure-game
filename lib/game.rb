@@ -7,6 +7,7 @@ require_relative "./ui"
 require_relative "./game/story"
 require_relative "./game/game"
 require_relative "./game/node"
+require_relative "./game/player"
 
 module NotAnotherAdventureGame
   extend UI
@@ -16,6 +17,9 @@ module NotAnotherAdventureGame
   def run
     clear_screen
     puts "Hello! Welcome to Not Another Adventure Game. Press 'q' at any time to quit.\n\n"
+
+    p = Player.new
+    p.set_name
 
     stories = Story.available_stories
     story = select_story(stories)

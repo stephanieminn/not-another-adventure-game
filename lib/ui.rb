@@ -20,6 +20,13 @@ module UI
     end
   end
 
+  def handle_long_input(options = [])
+    while (code = prompt)
+      input = code.strip
+      puts "#{input}"
+    end
+  end
+
   def quit?(input)
     return false unless input == "q"
 
