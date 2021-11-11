@@ -6,12 +6,15 @@ class Story
   def self.available_stories
     files = Dir["./data/*.json"]
     files.map do |file|
-      Story.new(File.basename(file, ".*"), parse(file))
+      Story.new(File.basename(file, ".*"), nodes(file))
     end
   end
 
-  def self.parse(file)
-    JSON.parse(File.read(file))
+  def self.nodes(file)
+    parsed_nodes = JSON.parse(File.read(file))
+    parsed_nodes.transform_values! do |body|
+      Node.new(body)
+    end
   end
 
   def initialize(title, nodes)
