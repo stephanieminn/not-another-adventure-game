@@ -27,13 +27,8 @@ module UI
     true
   end
 
-  def enter?(input)
-    input.strip == ""
-  end
-
   def valid?(input, options)
-    return true if options.empty?
-    return true if input.to_i.between?(1, options.size)
+    return true if options.empty? || input.to_i.between?(1, options.size)
 
     puts "Sorry, that's not a valid input.\n\n"
     false
