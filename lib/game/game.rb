@@ -12,23 +12,13 @@ class Game
   def start
     puts "======================= STORY: #{story.title} =======================\n\n"
 
-    current_node = nodes["1"]
-    if current_node.nil?
+    start_node = nodes["1"]
+    if start_node.nil?
       puts "Exiting -- can't find start node with key '1'."
       exit
     end
 
-    progress(current_node)
-
-    while (code = prompt)
-      input = code.strip
-      puts "#{input}\n\n"
-      exit if quit?(input)
-
-      next_node_key = find_next_node(input, current_node)
-      current_node = nodes[next_node_key] unless next_node_key.nil?
-      progress(current_node)
-    end
+    progress(start_node)
   end
 
   private
@@ -40,30 +30,47 @@ class Game
   end
 
   def progress(node)
-    puts "#{node['text']}\n"
-    if node["finish"]
-      puts "\n======================= THE END =======================\n\n"
+    if node.nil?
+      puts "Exiting -- can't find node."
       exit
     end
 
-    return if node["choices"].empty?
+    puts "#{node['text']}\n"
+    finish if node["finish"]
 
-    puts "What do you do?\n\n"
-    node["choices"].each do |choice|
-      puts choice["text"]
+    if non_branching?(node)
+      handle_non_branching(node)
+    else
+      handle_branching(node)
     end
   end
 
-  def find_next_node(input, current_node)
-    if move_it_along?(current_node)
-      current_node["next_node"]
-    elsif valid?(input, current_node["choices"])
-      current_node["choices"][input.to_i - 1]["next_node"]
-    end
+  def finish
+    puts "\n======================= THE END =======================\n\n"
+    exit
   end
 
-  def move_it_along?(current_node)
+  def non_branching?(node)
     # Assumes no branching paths if the current node has a top level 'next_node'
-    current_node["next_node"]
+    node["next_node"]
+  end
+
+  def handle_non_branching(node)
+    next_node_key = node["next_node"]
+    next_node = nodes[next_node_key]
+    progress(next_node)
+  end
+
+  def handle_branching(node)
+    branches = node["branches"]
+    puts "What do you do?\n\n"
+    branches.each do |branch|
+      puts branch["text"]
+    end
+
+    selection = handle_input(branches)
+    next_node_key = node["branches"][selection.to_i - 1]["next_node"]
+    next_node = nodes[next_node_key] unless next_node_key.nil?
+    progress(next_node)
   end
 end

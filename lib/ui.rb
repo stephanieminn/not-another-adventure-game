@@ -10,6 +10,16 @@ module UI
     $stdin.getch
   end
 
+  def handle_input(options)
+    while (code = prompt)
+      input = code.strip
+      puts "#{input}\n\n"
+      exit if quit?(input)
+
+      return input if valid?(input, options)
+    end
+  end
+
   def quit?(input)
     return false unless input == "q"
 

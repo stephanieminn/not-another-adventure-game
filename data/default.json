@@ -1,13 +1,13 @@
 {
   "1": {
     "text": "You open the door in front of you and reveal a dark corridor. You step through. Press any key to continue.",
-    "choices": [],
+    "branches": [],
     "finish": false,
     "next_node": "2"
   },
   "2": {
     "text": "You walk down the corridor for a few minutes until you reach a fork. You can't tell where either dierction leads.",
-    "choices": [
+    "branches": [
       { "text": "Go left (press 1)", "next_node": "3" },
       { "text": "Go right (press 2)", "next_node": "4" }
     ],
@@ -15,12 +15,12 @@
   },
   "3": {
     "text": "You turn left and carry on for a few minutes until you find another door. You open it and... you're outside! It's a beautiful day. Go enjoy it.",
-    "choices": [],
+    "branches": [],
     "finish": true
   },
   "4": {
     "text": "You turn right and carry on for a few minutes. A few minutes turns into a few hours. A few hours turns into the rest of your life. You never escape.",
-    "choices": [],
+    "branches": [],
     "finish": true
   }
 }
