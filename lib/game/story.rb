@@ -16,10 +16,8 @@ class Story
   def start
     puts "======================= STORY: #{title} =======================\n\n"
 
-    start_node = nodes["1"]
-    next_node = start_node.progress
-
-    next_node = next_node.progress while next_node
+    node = nodes["1"]
+    node = node.progress while node
 
     puts "Exiting -- can't find node."
     exit
