@@ -6,7 +6,7 @@
     "next_node": "2"
   },
   "2": {
-    "text": "You walk down the corridor for a few minutes until you reach a fork. You can't tell where either dierction leads.",
+    "text": "You walk down the corridor for a few minutes until you reach a fork. You can't tell where either direction leads.",
     "branches": [
       { "text": "Go left (press 1)", "next_node": "3" },
       { "text": "Go right (press 2)", "next_node": "4" }
